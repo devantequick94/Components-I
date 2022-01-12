@@ -25,14 +25,20 @@ function menuMaker(linksArray) {
     menuList.appendChild(link);
   });
 
-  const hamMenu = document.querySelector('.menu.button')
+  const hamMenu = document.querySelector('.menu-button')
 
   hamMenu.addEventListener('click', () => {
-    DocumentFragment.querySelector('.menu').classList.toggle('menu--open');
+   menuWrapper.classList.toggle('menu--open');
   })
 
   return menuWrapper;
 }
+console.log(menuMaker(menuItems));
+const newMenu = menuMaker(menuItems);
+const headerElem = document.querySelector('.header');
+headerElem.appendChild(newMenu)
+
+
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 

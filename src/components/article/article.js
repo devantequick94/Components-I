@@ -73,7 +73,7 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
+    title: 'BIGGY BIGGY BIGGY CANT U SEE',
     date: 'Jan 1st, 2019',
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
@@ -90,6 +90,48 @@ const data = [
   }
 ];
 
+
+function articleMaker(artictleObj)
+{
+  const articleWrapper = document.createElement('div');
+  const articleTitle= document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleParagraphUno = document.createElement('p')
+  const articleParagraphDos = document.createElement('p')
+  const articleParagraphTres = document.createElement('p')
+  const expandButton = document.createElement('span');
+
+  articleWrapper.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+
+  articleWrapper.appendChild(articleTitle);
+  articleWrapper.appendChild(articleDate);
+  articleWrapper.appendChild(articleParagraphUno)
+  articleWrapper.appendChild(articleParagraphDos)
+  articleWrapper.appendChild(articleParagraphTres)
+  articleWrapper.appendChild(expandButton)
+
+  articleTitle.textContent = artictleObj.title;
+  articleDate.textContent = artictleObj.date
+  articleParagraphUno.textContent = artictleObj.firstParagraph
+  articleParagraphDos.textContent = artictleObj.SecondParagraph
+  articleParagraphTres.textContent = artictleObj.ThirdParagraph
+  expandButton.textContent = "+";
+
+  expandButton.addEventListener('click', () => {
+   articleWrapper.classList.toggle('article-open');
+ })
+
+ return articleWrapper
+}
+
+data.forEach(article => {
+  document.querySelector('div.articles').appendChild(articleMaker(article));
+})
+
+articleMaker();
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
